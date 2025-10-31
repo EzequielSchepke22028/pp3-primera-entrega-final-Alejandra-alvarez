@@ -1,0 +1,131 @@
+/* Paleta: Azul Institucional (#004a99), Celeste (#007bff), Gris Oscuro (#495057), Gris Muy Claro (#f8f9fa) */
+
+/* ========================================= */
+/* 1. Contenedor Principal (.convenio-wrapper) */
+/* ========================================= */
+.convenio-wrapper {
+    max-width: 900px; /* Un poco más angosto para listas largas */
+    margin: 50px auto; 
+    padding: 40px;
+    
+    /* Estilo formal: fondo blanco y sombra */
+    background-color: #ffffff; 
+    box-shadow: 0 6px 20px rgba(0, 74, 153, 0.1); 
+    border-radius: 10px;
+    
+    font-family: 'Helvetica Neue', Arial, sans-serif; 
+    color: #495057; 
+    line-height: 1.65;
+}
+
+/* ========================================= */
+/* 2. Título Principal (h1) */
+/* ========================================= */
+.convenio-wrapper h1 {
+    color: #004a99; /* Azul Institucional */
+    font-size: 2.5em;
+    font-weight: 700; 
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+/* Línea de acento doble bajo el título principal */
+.convenio-wrapper h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background-color: #007bff; /* Celeste */
+    border-radius: 2px;
+}
+
+/* ========================================= */
+/* 3. Subtítulos (h2 y h3) */
+/* ========================================= */
+.convenio-wrapper h2,
+.convenio-wrapper h3 {
+    color: #004a99; 
+    font-size: 1.8em;
+    font-weight: 600; 
+    margin-top: 40px;
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #f0f2f5; /* Línea sutil de gris claro */
+}
+
+/* ========================================= */
+/* 4. Párrafos (p) */
+/* ========================================= */
+.convenio-wrapper p {
+    font-size: 1.1em;
+    margin-bottom: 25px;
+    text-align: justify;
+    line-height: 1.7;
+}
+
+/* Destacando el programa Licenciate BA (primer párrafo) */
+.convenio-wrapper p:first-of-type {
+    font-weight: 500;
+    font-style: italic;
+    padding: 15px;
+    border-left: 5px solid #007bff; 
+    background-color: #f8f9fa; /* Fondo gris claro */
+    margin-bottom: 30px;
+    border-radius: 3px;
+}
+
+/* ========================================= */
+/* 5. Lista de Universidades (ul y li) */
+/* ========================================= */
+.convenio-wrapper ul {
+    list-style-type: none; 
+    padding-left: 0;
+    margin-top: 15px;
+    column-count: 2; /* Distribuye la lista en dos columnas para mayor legibilidad */
+    column-gap: 40px;
+}
+
+.convenio-wrapper ul li {
+    padding: 10px 0;
+    font-size: 1.05em;
+    border-bottom: 1px solid #e9ecef; /* Separador gris muy claro */
+    position: relative;
+    padding-left: 25px; 
+    break-inside: avoid; /* Evita que los ítems se corten al cambiar de columna */
+}
+
+/* Marcador de lista para un look formal */
+.convenio-wrapper ul li::before {
+    content: '★'; /* Estrella para destacar el ítem */
+    color: #007bff; 
+    font-size: 0.8em;
+    position: absolute;
+    left: 0;
+    top: 12px;
+}
+
+/* ========================================= */
+/* 6. Enlace (a) */
+/* ========================================= */
+.convenio-wrapper a {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #007bff; /* Color de acento celeste */
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.convenio-wrapper a:hover {
+    background-color: #004a99; /* Azul más oscuro al pasar el ratón */
+}

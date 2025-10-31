@@ -1,0 +1,100 @@
+
+
+.calendario h4 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #070707;
+}
+
+/* 🔧 Estilos para react-calendar */
+.react-calendar {
+  background-color: transparent;
+  color: #070707;
+  border: none;
+}
+
+.react-calendar__tile {
+  background: none;
+  color: #101010;
+}
+
+.react-calendar__tile--active {
+  background: #3ab1b1;
+  color: #181414;
+  border-radius: 6px;
+}
+
+.react-calendar__navigation button {
+  color: #0a0a0a;
+  background: none;
+}
+
+.react-calendar__month-view__weekdays {
+  color: #050505;
+}
+
+
+.calendario {
+  width: 250px;
+  padding: 1rem;
+  background-color: #181414;
+  margin: 2rem 1rem;
+  border-radius: 12px;
+  color: #f0f0f0;
+
+  /* ✅ Elimina límites de altura */
+  height: 380px;
+  max-height: none;
+  overflow: visible;
+}
+
+.evento-form {
+  margin-top: 1rem;
+}
+
+.evento-form input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.evento-form button {
+  background-color: #00bfff;
+  color: #000000;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.lista-eventos {
+  margin-top: 1rem;
+  padding-left: 1rem;
+  color: #000000;
+}
+
+.video-item {
+  margin-bottom: 1rem;
+}
+
+.video-item a {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  color: #2c3e50;
+}
+
+.video-thumb {
+  width: 120px;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: 0 0 4px rgba(0,0,0,0.2);
+}
+
+.video-item p {
+  font-weight: 500;
+  margin: 0;
+} 

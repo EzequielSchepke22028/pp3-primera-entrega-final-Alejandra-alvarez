@@ -1,0 +1,39 @@
+@media (max-width: 768px) { 
+  .oferta-wrapper h1 {
+    font-size: 1.8rem;
+  }
+
+  .oferta-wrapper {
+    padding: 40px 10px;
+  }
+}
+
+
+oferta-wrapper {
+  background-color: #01032f;         /* fondo institucional */
+  color: #ffffff;                    /* texto claro */
+  padding: 60px 20px;                /* espacio interno */
+  text-align: center;                /* centra el contenido */
+  border-top: 4px solid #d11212;     /* línea superior institucional */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* sombra elegante */
+}
+
+.oferta-wrapper h1 {
+  font-size: 2.5rem;
+  color: #01032f;
+  margin: 0;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+}
+
+
+.areas-visuales {
+  display: flex;              /* ← activa distribución horizontal */
+  justify-content: center;    /* ← centra las tarjetas */
+  gap: 2rem;                  /* ← espacio entre ellas */
+  flex-wrap: wrap;            /* ← permite que bajen si no entran */
+  margin: 8rem 0;
+  margin-left: 0%;
+}

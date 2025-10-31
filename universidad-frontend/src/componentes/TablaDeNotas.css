@@ -1,0 +1,381 @@
+.bloc-notas {
+  width: 100%;
+  max-width: none;
+  margin-top: 1rem;
+}
+
+.bloc-header {
+  width: 210px;
+  display: up;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bloc-header input {
+  flex: 1;
+  padding: 0.3rem;
+  font-size: 1.1rem;
+  margin-right: 1rem;
+}
+
+.acciones button {
+  margin-left: 0.1rem;
+  padding: 0.2rem 0,1rem;
+  background-color: #00bfff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.formato {
+  margin: 1rem 0;
+}
+
+.formato button {
+  margin-right: 0.5rem;
+  font-weight: bold;
+  padding: 0.3rem 0.6rem;
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+}
+
+.editor-contenido {
+  background: #f9f9f9;
+  padding: 1rem 2rem 2rem 2rem;
+  border-radius: 6px;
+  min-height: 300px;
+}
+
+/* ✅ COLUMNA DE MATERIA MEJORADA - MENOS ESPACIO */
+.columna-grisada {
+  background-color: #f0f0f0;
+  font-weight: normal;
+  padding: 8px 12px;
+  min-width: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+/* Campo editable y bloqueado base */
+.campo-input {
+  width: 100%;
+  font-size: 0.9rem;
+  box-sizing: border-box;
+}
+
+/* Campo bloqueado */
+.estado-bloqueado {
+  background-color: #e0e0e0;
+  color: #555;
+  cursor: not-allowed;
+  padding: 8px 8px;
+  width: 100%;
+  min-width: 200px;
+}
+
+/* ✅ CAMPO CORRELATIVAS MÁS GRANDE */
+.correlativas-bloqueado {
+  background-color: #e0e0e0;
+  color: #555;
+  cursor: not-allowed;
+  padding: 8px 12px;
+  width: 120px;
+  box-sizing: border-box;
+  margin-left: 0;
+  text-align: center;
+  border-radius: 5px;
+  font-size: 14px;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ✅ CAMPO CORRELATIVAS EDITABLE MÁS GRANDE */
+.campo-input.editable.correlativas-editable {
+  width: 120px;
+  padding: 8px 12px;
+  text-align: center;
+  border-radius: 5px;
+  font-size: 14px;
+  min-height: 40px;
+  border: 2px solid #007bff;
+  background: #e6f7ff;
+}
+
+/* Campo editable */
+.editable {
+  background-color: #fff;
+  color: #000;
+  cursor: pointer;
+}
+
+/* Campo condición siempre bloqueado */
+.condicion-bloqueada {
+  background-color: #e0e0e0;
+  color: #555;
+  border: 1px solid #ccc;
+  cursor: not-allowed;
+  padding: 6px 10px;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 0.9rem;
+}
+
+/* ✅ CONTENEDOR DE CAMPO + BOTÓN MEJORADO */
+.campo-editable {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  padding-left: 0;
+}
+
+/* Botón lápiz */
+.lapiz-btn {
+  background: none;
+  font-size: 0.75rem;
+  padding: 0;
+  margin: 0;
+  line-height: 0;
+  color: #555;
+}
+
+/* ✅ MEJORAS DE ESPACIADO - MENOS MARGEN */
+.tabla-materias {
+  margin: 20px 0;
+  padding: 15px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.titulo-libreta {
+  text-align: center;
+  color: #2c3e50;
+  margin: 20px 0;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.lapiz-btn:hover {
+  transform: scale(1.1);
+}
+
+/* ✅ NUEVOS ESTILOS PARA EXCEL */
+.tabla-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.exportar-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.boton-exportar {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.boton-exportar:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+/* ✅ ESTILOS MEJORADOS PARA NOTA, FECHA Y ESTADO */
+.campo-nota-input {
+  width: 80px;
+  height: 30px;
+  font-size: 16px;
+  text-align: center;
+  border: 2px solid #ccc;
+  background: #f8f9fa;
+  border-radius: 5px;
+  padding: 5px;
+  color: #000;
+}
+
+.campo-nota-input.editable {
+  border: 3px solid #007bff;
+  background: #e6f7ff;
+}
+
+.campo-fecha {
+  width: 100px;
+  text-align: center;
+  border: 1px solid #ddd;
+  background: #f8f9fa;
+  border-radius: 3px;
+  padding: 5px;
+  font-size: 12px;
+}
+
+.campo-estado {
+  width: 150px;
+  text-align: center;
+  border: 1px solid #ddd;
+  background: #f8f9fa;
+  border-radius: 3px;
+  padding: 5px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* ✅ COLORES AUTOMÁTICOS DEL ESTADO SEGÚN NOTA */
+.estado-promocionada {
+  color: green;
+}
+
+.estado-a-final {
+  color: orange;
+}
+
+.estado-desaprobada-recursar {
+  color: red;
+}
+
+.estado-valor-incorrecto {
+  color: purple;
+}
+
+/* ✅ BOTONES MEJORADOS */
+.guardar-btn {
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.guardar-btn:hover {
+  background: #218838;
+  transform: scale(1.05);
+}
+
+.editar-btn {
+  background: #17a2b8;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.editar-btn:hover {
+  background: #138496;
+  transform: scale(1.05);
+}
+
+/* ✅ ESTILOS DE TABLA MEJORADOS - MÁS COMPACTOS */
+.tabla-materias table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 5px;
+}
+
+.tabla-materias th {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 10px 8px;
+  text-align: center;
+  font-weight: bold;
+  border: none;
+  font-size: 14px;
+}
+
+.tabla-materias td {
+  padding: 8px 6px;
+  text-align: center;
+  border-bottom: 1px solid #e0e0e0;
+  vertical-align: middle;
+}
+
+.tabla-materias tr:hover {
+  background-color: #f8f9fa;
+}
+
+/* ✅ ANCHOS DE COLUMNAS MEJORADOS */
+.tabla-materias th:nth-child(1),
+.tabla-materias td:nth-child(1) { width: 60px; } /* N° */
+
+.tabla-materias th:nth-child(2),
+.tabla-materias td:nth-child(2) { width: 140px; } /* Correlativas - ✅ MÁS ANCHO */
+
+.tabla-materias th:nth-child(3),
+.tabla-materias td:nth-child(3) { width: 250px; } /* Materia */
+
+.tabla-materias th:nth-child(4),
+.tabla-materias td:nth-child(4) { width: 150px; } /* Nota */
+
+.tabla-materias th:nth-child(5),
+.tabla-materias td:nth-child(5) { width: 100px; } /* Fecha */
+
+.tabla-materias th:nth-child(6),
+.tabla-materias td:nth-child(6) { width: 150px; } /* Estado */
+
+/* Responsive */
+@media (max-width: 768px) {
+  .tabla-container {
+    padding: 10px;
+  }
+  
+  .tabla-materias {
+    padding: 10px;
+    overflow-x: auto;
+  }
+  
+  .campo-editable {
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .boton-exportar {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
+
+/* ✅ ESTILO DEL BOTÓN EXCEL COMO TU AMIGO */
+.boton-exportar {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  display: block;
+  margin: 0 auto 20px auto;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.boton-exportar:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}

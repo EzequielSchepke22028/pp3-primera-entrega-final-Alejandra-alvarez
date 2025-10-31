@@ -1,0 +1,131 @@
+.bloc-notas {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 25px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  /* QUITAMOS el borde que sobresalía */
+  border: 1px solid #e1e8ed;
+}
+
+.bloc-header {
+  margin-bottom: 20px;
+}
+
+.titulo-input {
+  width: 100%;
+  padding: 15px;
+  font-size: 18px;
+  border: 2px solid #e1e8ed;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  background: #f8f9fa;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.titulo-input:focus {
+  border-color: #3498db;
+  background: white;
+  outline: none;
+  box-shadow: 0 0 8px rgba(52, 152, 219, 0.2);
+}
+
+.editor-simple {
+  margin: 20px 0;
+  border-radius: 10px;
+}
+
+.textarea-contenido {
+  width: 100%;
+  padding: 20px;
+  font-size: 16px;
+  border: 2px solid #e1e8ed;
+  border-radius: 10px;
+  resize: vertical;
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  background: #f8f9fa;
+  min-height: 300px;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.textarea-contenido:focus {
+  border-color: #3498db;
+  background: white;
+  outline: none;
+  box-shadow: 0 0 8px rgba(52, 152, 219, 0.2);
+}
+
+.acciones {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.btn-guardar, .btn-limpiar, .btn-recargar {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  flex: 1;
+  min-width: 120px;
+  border: 2px solid transparent;
+}
+
+.btn-guardar {
+  background: #27ae60;
+  color: white;
+  border-color: #219653;
+}
+
+.btn-guardar:hover {
+  background: #219653;
+  transform: translateY(-2px);
+}
+
+.btn-limpiar {
+  background: #e74c3c;
+  color: white;
+  border-color: #c0392b;
+}
+
+.btn-limpiar:hover {
+  background: #c0392b;
+  transform: translateY(-2px);
+}
+
+.btn-recargar {
+  background: #3498db;
+  color: white;
+  border-color: #2980b9;
+}
+
+.btn-recargar:hover {
+  background: #2980b9;
+  transform: translateY(-2px);
+}
+
+.contador-caracteres {
+  text-align: right;
+  color: #7f8c8d;
+  font-size: 14px;
+  margin-top: 15px;
+  padding: 10px;
+  background: #ecf0f1;
+  border-radius: 5px;
+}
+
+.cargando {
+  text-align: center;
+  padding: 40px;
+  color: #7f8c8d;
+  font-style: italic;
+  font-size: 16px;
+}

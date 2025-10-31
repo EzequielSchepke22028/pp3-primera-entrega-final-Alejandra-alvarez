@@ -1,0 +1,111 @@
+/* Paleta de Colores: 
+   - #004a99: Azul Institucional (Formal)
+   - #007bff: Azul Claro (Acento Moderno/Celeste)
+   - #495057: Gris Oscuro (Texto Formal)
+   - #f8f9fa: Gris Muy Claro (Fondo de Bloques) 
+*/
+
+/* ========================================= */
+/* 1. Contenedor Principal y Tipografía */
+/* ========================================= */
+.IFTS-info {
+    max-width: 1100px;
+    margin: 50px auto; 
+    padding: 40px;
+    /* Fondo blanco sólido para limpieza y formalidad */
+    background-color: #ffffff; 
+    /* Sombra profesional con tinte azul */
+    box-shadow: 0 6px 20px rgba(0, 74, 153, 0.1); 
+    border-radius: 10px;
+    font-family: 'Helvetica Neue', Arial, sans-serif; /* Tipografía moderna y clara */
+    color: #495057; /* Texto principal en gris oscuro */
+    line-height: 1.65;
+}
+
+/* ========================================= */
+/* 2. Títulos y Encabezados (h2) */
+/* ========================================= */
+.IFTS-info h2 {
+    color: #004a99; /* Azul Institucional */
+    font-size: 2em;
+    font-weight: 600; /* Semibold para un look moderno */
+    text-transform: uppercase; 
+    letter-spacing: 1.5px;
+    padding-bottom: 12px;
+    margin-top: 45px;
+    margin-bottom: 25px;
+    position: relative;
+    /* Quitamos el fondo que se agregó para la imagen */
+    background-color: transparent; 
+    padding-left: 0;
+}
+
+/* Línea de acento debajo del título */
+.IFTS-info h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px; /* Ancho corto para un look moderno */
+    height: 3px;
+    background-color: #007bff; /* Color de acento celeste */
+}
+
+/* ========================================= */
+/* 3. Párrafos y Contenido (p) */
+/* ========================================= */
+.IFTS-info p {
+    font-size: 1.1em;
+    margin-bottom: 25px;
+    text-align: justify;
+    /* Quitamos el fondo que se agregó para la imagen */
+    background-color: transparent; 
+    padding: 0;
+}
+
+/* Estilo visual para destacar la Misión (bloque) */
+.IFTS-info p:first-of-type {
+    font-weight: 500;
+    font-style: italic;
+    padding: 15px;
+    border-left: 5px solid #007bff; /* Borde de acento celeste */
+    background-color: #f8f9fa; /* Fondo gris muy claro para destacar */
+    margin-bottom: 30px;
+    border-radius: 3px;
+}
+
+/* ========================================= */
+/* 4. Estilos de Listas (Objetivos / Por Qué Elegirnos) */
+/* ========================================= */
+.IFTS-info ul {
+    list-style-type: none; 
+    padding-left: 0;
+    margin-top: 15px;
+    margin-bottom: 40px;
+}
+
+.IFTS-info ul li {
+    padding: 12px 0;
+    font-size: 1.05em;
+    border-bottom: 1px solid #dee2e6; 
+    position: relative;
+    padding-left: 35px; /* Espacio para el ícono/marcador */
+    /* Quitamos el fondo que se agregó para la imagen */
+    background-color: transparent; 
+}
+
+/* Estilo del marcador de lista con color de acento */
+.IFTS-info ul li::before {
+    content: '▶'; 
+    color: #007bff; /* Color celeste (moderno) */
+    font-size: 0.8em;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    top: 14px; /* Ajuste vertical */
+}
+
+/* El último elemento no necesita separador inferior */
+.IFTS-info ul li:last-child {
+    border-bottom: none;
+}

@@ -1,0 +1,69 @@
+.institucional-navbar {
+  display:block;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #00274d;
+  padding: 2.7rem 2rem;
+  color: white;
+  
+}
+
+
+.logo img {
+  height: 300px;
+  opacity: 0.95;
+}
+
+
+.botones-navbar {
+  position: fixed;
+  right: 0;
+  top: 20px;
+  display: flex;
+  gap: 2px;;
+  z-index: 999; /* asegura que estén por encima de todo */
+}
+
+
+
+.btn,
+.btncampus {
+  padding: 0.6rem 1.2rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+
+.btn {
+  background-color: white;
+  color: #00274d;
+}
+
+.btn:hover {
+  background-color: white;
+  transform: scale(1.35); /* opcional: efecto de agrandamiento */
+  color: white;
+}
+
+.btncampus {
+  background-color: white;
+  color: #00274d;
+  
+}
+
+.btncampus:hover {
+  background-color: white;
+  color: white;
+  transform: scale(1.35); /* opcional: efecto de agrandamiento */
+
+}
+
+  .navbar-compacta {
+  font-size:0.9cm;
+  padding: 0.6rem 8rem;
+  height: 100px;
+}
+

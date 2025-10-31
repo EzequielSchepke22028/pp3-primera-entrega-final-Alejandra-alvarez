@@ -1,0 +1,152 @@
+.bloc-notas {
+  width: 100%;
+  max-width: none;
+  margin-top: 1rem;
+}
+
+
+.bloc-header {
+   width: 210px; /* antes 260px */
+
+  display: up;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bloc-header input {
+  flex: 1;
+  padding: 0.3rem;
+  font-size: 1.1rem;
+  margin-right: 1rem;
+}
+
+.acciones button {
+  margin-left: 0.1rem;
+  padding: 0.2rem 0,1rem;
+  background-color: #00bfff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.formato {
+  margin: 1rem 0;
+}
+
+.formato button {
+  margin-right: 0.5rem;
+  font-weight: bold;
+  padding: 0.3rem 0.6rem;
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+}
+
+.editor-contenido { /*bloc de notas*/
+  background: #f9f9f9;
+
+  padding: 1rem 2rem 2rem 2rem;
+  border-radius: 6px;
+  min-height: 300px;
+}
+
+/* Columna de materia */
+.columna-grisada {
+  background-color: #f0f0f0;
+  font-weight: normal;
+  padding: 0.8rem 1.5rem;
+  min-width: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Campo editable y bloqueado base */
+.campo-input {
+  width: 100%;
+  border: 1px solid #ccc;
+  font-size: 0.9rem;
+  box-sizing: border-box;
+}
+
+/* Campo bloqueado */
+.estado-bloqueado {
+  background-color: #e0e0e0;
+  color: #555;
+  cursor: not-allowed;
+  padding: 8px 8px;
+  width: 100%;
+ min-width: 200px;
+
+}
+
+.correlativas-bloqueado {
+  background-color: #e0e0e0;
+  color: #555;
+  cursor: not-allowed;
+  padding: 2x 4px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-left: 3px; /* mismo desplazamiento que Estado */
+}
+
+/* Campo editable */
+.editable {
+  background-color: #fff;
+  color: #000;
+  cursor: pointer;
+}
+
+/* Campo condición siempre bloqueado */
+.condicion-bloqueada {
+  background-color: #e0e0e0;
+  color: #555;
+  border: 1px solid #ccc;
+  cursor: not-allowed;
+  padding: 6px 10px;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 0.9rem;
+  
+}
+
+/* Contenedor de campo + botón */
+.campo-editable {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding-left: 40px; /* mueve todo el campo un poco a la derecha */
+}
+
+
+/* Botón lápiz */
+.lapiz-btn {
+  background: none;
+  font-size: 0.75rem;
+  padding: 0;
+  margin: 0;
+  line-height: 0;
+  color: #555;
+}
+
+.lapiz-btn:hover {
+  transform: scale(1.1);
+}
+
+
+
+.boton-exportar {
+  margin: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #1c0674;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.boton-exportar:hover {
+  background-color: #1c0674;
+}

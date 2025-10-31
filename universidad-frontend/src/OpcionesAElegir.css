@@ -1,0 +1,81 @@
+.educativa-layout {
+  display: flex;
+  background-color: #f0f2f5;
+  font-family: 'Segoe UI', sans-serif;
+  min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+   width: 320px; /* antes 260px */
+
+  background-color: #e3eaf2;
+  flex-direction: column;
+  padding: 2rem 1rem;
+  width: 220px;
+  border-right: 1px solid #cdd5e0;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 1.2rem 0;
+  font-weight: 500;
+  color: #2c3e50;
+  cursor: pointer;
+}
+
+/* Contenido principal */
+.contenido {
+  flex: 1;
+  padding: 2rem 3rem;
+}
+
+/* Caja de nota */
+.nota {
+  background: white;
+  padding: 1.5rem 2rem;
+  margin-bottom: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.nota h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.nota .fecha {
+  color: #7f8c8d;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+/* Caja de resolución */
+.resolucion {
+  background: white;
+  padding: 1.5rem 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.resolucion h3 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+/* Calendario */
+.calendario {
+  width: 260px;
+  padding: 1rem;
+  background-color: #fff;
+  border-left: 1px solid #cdd5e0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
