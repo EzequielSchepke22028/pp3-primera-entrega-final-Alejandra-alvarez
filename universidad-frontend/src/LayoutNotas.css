@@ -1,0 +1,31 @@
+.layout-notas-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar-layout {
+  width: 300px;
+  background: #f8f9fa;
+  border-right: 2px solid #e9ecef;
+  overflow-y: auto;
+}
+
+.main-content-layout {
+  flex: 1;
+  padding: 20px;
+  background: white;
+  overflow-y: auto;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .layout-notas-container {
+    flex-direction: column;
+  }
+  
+  .sidebar-layout {
+    width: 100%;
+    border-right: none;
+    border-bottom: 2px solid #e9ecef;
+  }
+}

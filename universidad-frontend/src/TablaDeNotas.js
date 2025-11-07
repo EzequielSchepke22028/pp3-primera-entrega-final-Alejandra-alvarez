@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import "./TablaDeNotas.css";
 import * as XLSX from "xlsx";
 
-function TablaDeNotas() {
-  const [materias, setMaterias] = useState([
+function TablaDeNotas({ materias: materiasProp, setMaterias: setMateriasProp }) {
+  // 🎯 USAR PROPS SI EXISTEN, SINO ESTADO LOCAL
+  const [materiasInternas, setMateriasInternas] = useState([
     // 📘 1º Año
     { id: 101, anio: 1, correlativas: "-", nombre: "Matemática", nota: "", estado: "", condicion: "" },
     { id: 102, anio: 1, correlativas: "-", nombre: "Lógica", nota: "", estado: "", condicion: "" },
@@ -29,9 +30,48 @@ function TablaDeNotas() {
     { id: 306, anio: 3, correlativas: "206", nombre: "Práctica Profesionalizante III", nota: "", estado: "", condicion: "" },
   ]);
 
-  const [modoEdicion, setModoEdicion] = useState({});
+  // 🎯 DECIDIR QUÉ DATOS USAR
+  const usarProps = materiasProp && setMateriasProp;
+  const materias = usarProps ? materiasProp : materiasInternas;
+  const setMaterias = usarProps ? setMateriasProp : setMateriasInternas;
 
-  // ✅ FUNCIÓN DE EXPORTAR EXCEL (EXACTAMENTE COMO TU AMIGO)
+  const [modoEdicion, setModoEdicion] = useState({});
+  
+  // 🎯 ESTADOS PARA FILTROS
+  const [filtroAnio, setFiltroAnio] = useState('todos');
+  const [filtroEstado, setFiltroEstado] = useState('todos');
+  const [busqueda, setBusqueda] = useState('');
+
+  // ✅ FUNCIÓN PARA GUARDAR EN LOCALSTORAGE
+  const guardarEnLocalStorage = (materiasActualizadas) => {
+    try {
+      localStorage.setItem('materias-notas', JSON.stringify(materiasActualizadas));
+      console.log('💾 Guardado en localStorage:', materiasActualizadas.length, 'materias');
+      
+      // 🎯 FORZAR EVENTO DE STORAGE PARA QUE SIDEBAR LO DETECTE
+      window.dispatchEvent(new Event('storage'));
+    } catch (error) {
+      console.error('❌ Error guardando en localStorage:', error);
+    }
+  };
+
+  // ✅ FUNCIÓN DE FILTRADO
+  const materiasFiltradas = materias.filter(materia => {
+    const coincideAnio = filtroAnio === 'todos' || materia.anio.toString() === filtroAnio;
+    const coincideEstado = filtroEstado === 'todos' || materia.estado === filtroEstado;
+    const coincideBusqueda = materia.nombre.toLowerCase().includes(busqueda.toLowerCase());
+    
+    return coincideAnio && coincideEstado && coincideBusqueda;
+  });
+
+  // Función para limpiar filtros
+  const limpiarFiltros = () => {
+    setFiltroAnio('todos');
+    setFiltroEstado('todos');
+    setBusqueda('');
+  };
+
+  // ✅ FUNCIÓN DE EXPORTAR EXCEL
   const exportarNotasAExcel = () => {
     const datosParaExcel = materias.map((materia) => ({
       ID: materia.id,
@@ -108,6 +148,8 @@ function TablaDeNotas() {
         });
         
         setMaterias(materiasActualizadas);
+        // 🎯 GUARDAR EN LOCALSTORAGE
+        guardarEnLocalStorage(materiasActualizadas);
       }
 
     } catch (error) {
@@ -118,6 +160,9 @@ function TablaDeNotas() {
   // Cargar notas al iniciar
   useEffect(() => {
     cargarNotasDesdeBackend();
+    
+    // 🎯 GUARDAR DATOS INICIALES EN LOCALSTORAGE
+    guardarEnLocalStorage(materias);
   }, []);
 
   // Función para GUARDAR nota en MongoDB (RUTA PROTEGIDA)
@@ -165,6 +210,8 @@ function TablaDeNotas() {
             : m
         );
         setMaterias(materiasActualizadas);
+        // 🎯 GUARDAR EN LOCALSTORAGE
+        guardarEnLocalStorage(materiasActualizadas);
       }
 
     } catch (error) {
@@ -203,45 +250,55 @@ function TablaDeNotas() {
     }
 
     setMaterias(nuevasMaterias);
+    
+    // 🎯 GUARDAR EN LOCALSTORAGE CADA CAMBIO
+    guardarEnLocalStorage(nuevasMaterias);
   };
 
-  const renderTablaPorAnio = (anio, color, titulo) => (
-    <section className="tabla-materias">
-      <h3>{`${color} ${titulo}`}</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>N°</th>
-            <th>Correlativa/s</th>
-            <th>Materia</th>
-            <th>Nota</th>
-            <th>Fecha</th>
-            <th>Estado</th>
-          </tr>
-        </thead>
-        <tbody>
-          {materias
-            .filter((materia) => materia.anio === anio)
-            .map((materia) => (
+  // 🎯 FUNCIÓN ACTUALIZADA PARA RENDERIZAR TABLAS CON FILTROS
+  const renderTablaPorAnio = (anio, color, titulo) => {
+    const materiasDelAnio = materiasFiltradas.filter((materia) => materia.anio === anio);
+    
+    // Si no hay materias que coincidan con el filtro para este año, no mostrar la tabla
+    if (materiasDelAnio.length === 0) {
+      return null;
+    }
+
+    return (
+      <section className="tabla-materias">
+        <h3>{`${color} ${titulo}`}</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>N°</th>
+              <th>Correlativa/s</th>
+              <th>Materia</th>
+              <th>Nota</th>
+              <th>Fecha</th>
+              <th>Estado</th>
+            </tr>
+          </thead>
+          <tbody>
+            {materiasDelAnio.map((materia) => (
               <tr key={materia.id}>
                 <td>{materia.id}</td>
                 <td>
-  <div className="campo-editable">
-    <input
-      type="text"
-      value={materia.correlativas}
-      readOnly={!modoEdicion[`${materia.id}-correlativas`]}
-      className={`campo-input ${modoEdicion[`${materia.id}-correlativas`] ? "editable correlativas-editable" : "correlativas-bloqueado"}`}
-      onChange={(e) => manejarCambio(materia.id, "correlativas", e.target.value)}
-    />
-    <button 
-      onClick={() => toggleEdicion(materia.id, "correlativas")} 
-      className="lapiz-btn"
-    >       
-      {modoEdicion[`${materia.id}-correlativas`] ? "✔️" : "✏️"}
-    </button>
-  </div>
-</td>
+                  <div className="campo-editable">
+                    <input
+                      type="text"
+                      value={materia.correlativas}
+                      readOnly={!modoEdicion[`${materia.id}-correlativas`]}
+                      className={`campo-input ${modoEdicion[`${materia.id}-correlativas`] ? "editable correlativas-editable" : "correlativas-bloqueado"}`}
+                      onChange={(e) => manejarCambio(materia.id, "correlativas", e.target.value)}
+                    />
+                    <button 
+                      onClick={() => toggleEdicion(materia.id, "correlativas")} 
+                      className="lapiz-btn"
+                    >       
+                      {modoEdicion[`${materia.id}-correlativas`] ? "✔️" : "✏️"}
+                    </button>
+                  </div>
+                </td>
                 <td className="columna-grisada">{materia.nombre}</td>
                 <td>
                   <div className="campo-editable" style={{ gap: '15px', justifyContent: 'center', alignItems: 'center' }}>
@@ -261,7 +318,7 @@ function TablaDeNotas() {
                         borderRadius: '5px',
                         padding: '5px',
                         color: '#000',
-                        marginRight: '0' // ✅ QUITAMOS MARGEN DERECHO
+                        marginRight: '0'
                       }}
                     />
                     <button 
@@ -276,7 +333,7 @@ function TablaDeNotas() {
                         fontSize: '12px',
                         fontWeight: 'bold',
                         transition: 'all 0.3s ease',
-                        minWidth: '80px' // ✅ ANCHO MÍNIMO PARA CONSISTENCIA
+                        minWidth: '80px'
                       }}
                       onMouseEnter={(e) => e.target.style.transform = 'scale(1.05)'}
                       onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
@@ -324,19 +381,70 @@ function TablaDeNotas() {
                 </td>
               </tr>
             ))}
-        </tbody>
-      </table>
-    </section>
-  );
+          </tbody>
+        </table>
+      </section>
+    );
+  };
 
   return (
     <div>
-      {/* ✅ BOTÓN EXCEL EXACTAMENTE COMO TU AMIGO */}
+      {/* ✅ BOTÓN EXCEL */}
       <button onClick={exportarNotasAExcel} className="boton-exportar">
         📤 Exportar a Excel
       </button>
       
       <h2 className="titulo-libreta">MI LIBRETA VIRTUAL</h2>
+
+      {/* 🎯 SECCIÓN DE FILTROS */}
+      <div className="filtros-container">
+        <h3>🔍 Filtros de Materias</h3>
+        
+        {/* Búsqueda por nombre */}
+        <div className="filtro-group">
+          <input 
+            type="text" 
+            placeholder="Buscar materia por nombre..."
+            value={busqueda}
+            onChange={(e) => setBusqueda(e.target.value)}
+            className="filtro-busqueda"
+          />
+        </div>
+
+        {/* Filtros por select */}
+        <div className="filtros-row">
+          <div className="filtro-group">
+            <label>Año:</label>
+            <select value={filtroAnio} onChange={(e) => setFiltroAnio(e.target.value)}>
+              <option value="todos">Todos los años</option>
+              <option value="1">1º Año</option>
+              <option value="2">2º Año</option>
+              <option value="3">3º Año</option>
+            </select>
+          </div>
+
+          <div className="filtro-group">
+            <label>Estado:</label>
+            <select value={filtroEstado} onChange={(e) => setFiltroEstado(e.target.value)}>
+              <option value="todos">Todos los estados</option>
+              <option value="Promocionada">✅ Promocionada</option>
+              <option value="A final">📝 A final</option>
+              <option value="Desaprobada-Recursar">❌ Desaprobada</option>
+              <option value="">📚 Sin nota</option>
+            </select>
+          </div>
+        </div>
+
+        {/* Contador y botón limpiar */}
+        <div className="filtros-info">
+          
+          <button onClick={limpiarFiltros} className="btn-limpiar">
+            🗑️ Limpiar filtros
+          </button>
+        </div>
+      </div>
+
+      {/* 📊 TABLAS FILTRADAS */}
       {renderTablaPorAnio(1, "📘", "1º Año Analisis de Sistemas - IFTS 4")}
       {renderTablaPorAnio(2, "📗", "2º Año Analisis de Sistemas - IFTS 4")}
       {renderTablaPorAnio(3, "📙", "3º Año Analisis de Sistemas - IFTS 4")}

@@ -1,3 +1,60 @@
 * {
-  all: unset;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f8f9fa;
+  line-height: 1.6;
+  color: #333;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Layout principal para páginas con sidebar */
+.main-container {
+  display: flex;
+  min-height: calc(100vh - 70px); /* Resta la altura del header */
+  gap: 0;
+}
+
+/* Estilos para el contenido principal */
+.main-content {
+  flex: 1;
+  padding: 30px;
+  background: #f8f9fa;
+  min-height: calc(100vh - 70px);
+  overflow-y: auto;
+}
+
+/* Modo nocturno */
+body.modo-nocturno {
+  background: #1a1a1a;
+  color: #e0e0e0;
+}
+
+body.modo-nocturno .main-content {
+  background: #1a1a1a;
+}
+
+body.modo-nocturno .sidebar-contenido {
+  background: #2d2d2d;
+  color: #e0e0e0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .main-container {
+    flex-direction: column;
+  }
+  
+  .main-content {
+    padding: 20px;
+  }
 }

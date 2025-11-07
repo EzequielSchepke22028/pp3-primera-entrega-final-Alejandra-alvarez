@@ -195,6 +195,12 @@ function TablaDeNotas() {
       </section>
     );
 
+// En el componente padre, pasar las materias al Sidebar
+function App() {
+  const [materias, setMaterias] = useState([...]); // Tus materias aquí
+  
+
+    
     return (
       <div>
         <h2 className="titulo-libreta">MI LIBRETA VIRTUAL</h2>

@@ -150,3 +150,96 @@
 .boton-exportar:hover {
   background-color: #1c0674;
 }
+
+/* 🎯 ESTILOS PARA FILTROS */
+.filtros-container {
+  background: #fdfdfd;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px 0;
+  border: 2px solid #53749e;
+}
+
+.filtros-container h3 {
+  margin-bottom: 15px;
+  color: #000000;
+  font-size: 1.2rem;
+}
+
+.filtros-row {
+  display: flex;
+  gap: 20px;
+  margin: 15px 0;
+  flex-wrap: wrap;
+}
+
+.filtro-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.filtro-group label {
+  font-weight: bold;
+  color: #000000;
+  font-size: 0.9rem;
+}
+
+.filtro-busqueda {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px;
+  border: 2px solid #007bff;
+  border-radius: 500px;
+  font-size: 14px;
+}
+
+.filtro-group select {
+  padding: 8px 12px;
+  border: 2px solid #0085fa;
+  border-radius: 500px;
+  background: white;
+  font-size: 14px;
+  min-width: 180px;
+}
+
+.filtros-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 10px solid #00d9ff;
+}
+
+.contador-materias {
+  font-weight: bold;
+  color:  #ffffff;
+}
+
+.btn-limpiar {  
+  background: #d30019;
+  color: rgb(212, 209, 5)5)5)5)2)0);
+  border: none;
+  padding: 8px 15px;
+  border-radius: 500px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s ease;
+}
+
+.btn-limpiar:hover {
+  background: #000000;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .filtros-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .filtro-group select {
+    min-width: 100%;
+  }
+}

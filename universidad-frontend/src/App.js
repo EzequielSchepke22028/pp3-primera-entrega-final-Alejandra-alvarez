@@ -1,5 +1,6 @@
 import React from 'react';
 import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
+import { MateriasProvider } from './MateriasContext'; // ← CONTEXT PROVIDER
 
 import NavbarInstitucional from './NavbarInstitucional';
 import Login from './Login';
@@ -20,12 +21,14 @@ import Chatbot from './Chatbot';
 import Institucionalinicio from './Institucional-Inicio';
 import TablaDeNotas from './TablaDeNotas';
 import VideosYouTube from './componentes/VideosYouTube';
+import LayoutNotas from './LayoutNotas';
+
 function App() {
   const location = useLocation();
   const showChatbot = location.pathname !== '/';
 
   return (
-    <>
+    <MateriasProvider> {/* ← ENVOLVER TODO CON EL PROVIDER */}
       <NavbarInstitucional />
 
       <Routes>
@@ -44,7 +47,16 @@ function App() {
         <Route path="/Economia" element={<Economia />} />
         <Route path="/Idiomas" element={<Idiomas />} />
         <Route path="/Derecho" element={<Derecho />} />
-        <Route path="/notas" element={<TablaDeNotas />} />
+        
+        {/* 🆕 RUTA DE NOTAS CON LAYOUT - SIN PASAR PROPS */}
+        <Route 
+          path="/notas" 
+          element={
+            <LayoutNotas> {/* ← SIN materias prop */}
+              <TablaDeNotas /> {/* ← SIN props */}
+            </LayoutNotas>
+          } 
+        />
         
         {/* REDIRECCIONES PARA MANEJAR ERRORES Y RUTAS INEXISTENTES */}
         <Route path="/iniciar%20sesión" element={<Navigate to="/login" replace />} />
@@ -56,12 +68,10 @@ function App() {
         <Route path="/calificaciones" element={<Navigate to="/notas" replace />} />
         <Route path="*" element={<Navigate to="/" replace />} />
         <Route path="/videos" element={<VideosYouTube />} />
-
-        
       </Routes>
 
       {showChatbot && <Chatbot />}
-    </>
+    </MateriasProvider>
   );
 }
 
