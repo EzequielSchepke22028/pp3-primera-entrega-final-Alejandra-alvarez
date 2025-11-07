@@ -23,7 +23,7 @@ function Convenio() {
           <li>Universidad del Salvador (USAL) </li>
       </ul>
         <h3>Más información en:</h3>
-        <a href="https://buenosaires.gob.ar/educacion/licenciate-ba">LicnciateBA</a>
+        <a href="https://buenosaires.gob.ar/educacion/licenciate-ba">LicenciateBA</a>
       {/* Podés agregar logos, enlaces o tarjetas aquí */}
     </div>
   );

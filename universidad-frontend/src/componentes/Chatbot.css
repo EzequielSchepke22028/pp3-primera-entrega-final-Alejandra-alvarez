@@ -1,0 +1,23 @@
+.chatbot-container {
+display: flex;
+align-items: center;
+padding: 20px;
+background-color: #f0f0f0;
+border-radius: 10px;
+margin: 20px;
+}
+
+.chatbot-avatar {
+width: 120px;
+height: 120px;
+border-radius: 50%;
+margin-right: 20px;
+}
+
+.chatbot-box {
+flex: 1;
+background: white;
+padding: 20px;
+border-radius: 10px;
+box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}

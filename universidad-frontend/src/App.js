@@ -22,6 +22,7 @@ import Institucionalinicio from './Institucional-Inicio';
 import TablaDeNotas from './TablaDeNotas';
 import VideosYouTube from './componentes/VideosYouTube';
 import LayoutNotas from './LayoutNotas';
+import PerfilAlumno from './PerfilAlumno';
 
 function App() {
   const location = useLocation();
@@ -38,6 +39,7 @@ function App() {
         <Route path="/registro" element={<Register />} />
         <Route path="/materias" element={<Materias />} />
         <Route path="/opcionesaelegir" element={<OpcionesAElegir />} />
+        <Route path="/OfertaAcademica" element={<OfertaAcademica />} />
         <Route path="/Donde" element={<Donde />} />
         <Route path="/SobreIFTS" element={<SobreIFTS />} />
         <Route path="/OfertaAcademica" element={<OfertaAcademica />} />
@@ -48,6 +50,7 @@ function App() {
         <Route path="/Idiomas" element={<Idiomas />} />
         <Route path="/Derecho" element={<Derecho />} />
         
+        
         {/* 🆕 RUTA DE NOTAS CON LAYOUT - SIN PASAR PROPS */}
         <Route 
           path="/notas" 
@@ -56,6 +59,11 @@ function App() {
               <TablaDeNotas /> {/* ← SIN props */}
             </LayoutNotas>
           } 
+        />
+
+        <Route 
+          path="/perfil/:alumnoId" 
+          element={<PerfilAlumno />} 
         />
         
         {/* REDIRECCIONES PARA MANEJAR ERRORES Y RUTAS INEXISTENTES */}
@@ -68,6 +76,9 @@ function App() {
         <Route path="/calificaciones" element={<Navigate to="/notas" replace />} />
         <Route path="*" element={<Navigate to="/" replace />} />
         <Route path="/videos" element={<VideosYouTube />} />
+        <Route path="/perfil" element={<PerfilAlumno />} />
+        
+        
       </Routes>
 
       {showChatbot && <Chatbot />}

@@ -3,6 +3,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const videoRoutes = require('./Routes/videoRoutes');
+const notasRoutes = require('./Routes/notaRoutes');
+
 
 const app = express();
 
@@ -10,6 +12,11 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 app.use('/api', videoRoutes);
+app.use('/notas', notasRoutes);
+
+app.get('/', (req, res) => {
+    res.send('Servidor de notas activo.');
+});
 
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
@@ -138,4 +145,8 @@ app.use('/api', apunteRoutes); // ← AGREGAR AQUÍ
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`🚀 Servidor corriendo en puerto ${PORT}`);
+});
+
+app.listen(PORT, () => {
+    console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
